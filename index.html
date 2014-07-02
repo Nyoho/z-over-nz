@@ -15,26 +15,36 @@
     <link href="css/base.css" rel="stylesheet">
   </head>
 
-  <body>
-    <div class="container">
-      <div ng-controller="mainCtrl" ng-init="n=6" class="main">
-        <div class="header" ng-cloak>
-          <h1 class="">Z/nZ = Z/{{ n }}Zの乗積表</h1>
-        </div>
+  <body class="body">
 
-        <div ng-cloak>
-          The multiplication table of Z/nZ = Z/{{ n }}Z (integers modulo {{n}}).
+    <div ng-controller="mainCtrl" ng-init="n=6">
+      <div id="header" class="navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand logo" href="/" ng-cloak>
+              <span>Z/nZ = Z/{{ n }}Zの乗積表</span>
+            </a>
+          </div> 
         </div>
+      </div>
 
-        <div ng-cloak>
-          <form novalidate name="myForm" ng-submit="addUser()">
-            n = <input class="input" type="text" name="n" ng-model="n" min="1" required>
-            <span ng-show="myForm.n.$error.required" style="color: #d00;">正の整数 n は必ず入力して下さい。</span> (⬅ 変更してみましょう。Let's change it. )
-          </form>
+      <div class="container" class="main">
+
+        <div class="explanation">
+          <p ng-cloak>
+            The multiplication table of Z/nZ = Z/{{ n }}Z (integers modulo {{n}}).
+          </p>
+
+          <div ng-cloak>
+            <form novalidate name="myForm" ng-submit="addUser()">
+              n = <input class="input" type="text" name="n" ng-model="n" min="1" required>
+              <span ng-show="myForm.n.$error.required" style="color: #d00;">正の整数 n は必ず入力して下さい。</span> (⬅ 変更してみましょう。Let's change it. )
+            </form>
+          </div>
         </div>
 
         <div class="table-respoinsive" ng-cloak>
-          <table class="table table-bordered table-striped table-hover">
+          <table class="table table-hover table-borderless">
             <thead>
               <tr><th>×</th>
                 <th ng-repeat="row in data track by $index">{{$index}}</th></tr>
@@ -52,16 +62,24 @@
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script src="js/script.js"></script>
 
-      </div>
 
-      <div>
-        <h3>楽しい利用例</h3>
-          <ul>
-              <li>n をいろいろ変更していろんな表を出してみましょう。</li>
-              <li>いろいろな n について表を観察して、表の数にどんな法則が成り立っているか推測してみましょう。</li>
-              <li>推測した法則が他の表でも成り立っているか、n を変えて確認してみましょう。</li>
-              <li>推測した法則が正しそうであれば証明してみましょう。</li>
-          </ul>
+        <div class="container">
+          <div class="col-lg-2 col-md-2"></div>
+          <div class="col-lg-8 col-md-8">
+            <div class="row">
+              <h3>楽しい利用例</h3>
+              <p>整数を n で割った余りを考えると積にとても興味深い現象が垣間見えます。</p>
+              <ul>
+                <li>n をいろいろ変更していろんな表を出してみましょう。</li>
+                <li>いろいろな n について表を観察して、表の数にどんな法則が成り立っているか推測してみましょう。</li>
+                <li>推測した法則が他の表でも成り立っているか、n を変えて確認してみましょう。</li>
+                <li>推測した法則が正しそうであれば証明してみましょう。</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-2"></div>
+        </div>
+
       </div>
 
       <footer>
