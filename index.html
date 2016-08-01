@@ -50,18 +50,22 @@
                 <th ng-repeat="row in data track by $index">{{$index}}</th></tr>
             </thead>
             <tbody>
-              <tr ng-repeat="row in data track by $index">
+                <tr ng-repeat="row in data track by $index"
+                    ng-class="{ 'selected-class-name': $index == selectedIndex }"
+                    ng-click="itemClicked($index)">
                 <td class="thead">{{ $index }}</td>
                 <td ng-repeat="e in row track by $index">{{e}}</td>
               </tr>
             </tbody>
           </table>
         </div>
+
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.30/angular.min.js"></script>
         <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script src="js/script.js"></script>
-
+        <script></script>
+        
 
         <div class="container">
           <div class="col-lg-2 col-md-2"></div>

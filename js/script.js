@@ -2,6 +2,15 @@ var myApp = angular.module('myApp', []);
 myApp.controller('mainCtrl', function($scope) {
   var n = $scope.n;
 
+  $scope.selectedIndex = -1;
+  $scope.itemClicked = function ($index) {
+    if ($scope.selectedIndex == $index) {
+      $scope.selectedIndex = -1;
+    } else {
+      $scope.selectedIndex = $index;
+    }
+  };
+
   $scope.$watch(
     'n',
     function (n, oldn) {
